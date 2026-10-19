@@ -20,7 +20,7 @@ The site.link tools manage the name and its DNS records. The ChatGPT Sites tools
 ## Give a Site a site.link address
 
 1. **Pick the name.** Use the name the user asked for, or suggest one from the Site's business or project name: short, lowercase, letters, numbers and hyphens.
-2. **`check_name`.** If it isn't available, offer the `suggestions` it returns and let the user choose. Don't claim a name the user didn't agree to.
+2. **`check_name`.** If it's taken, offer the `suggestions` it returns and let the user choose. Don't claim a name the user didn't agree to.
 3. **`claim_name`** with the name and the Site's URL as `site_url` when you know it.
 4. **Add the hostname to the Site.** With the Sites tools, add `<name>.site.link` as a custom domain on the Site and read the DNS records Sites returns. If there are no Sites tools in this conversation, ask the user to open the Site's settings, choose **Add domain**, enter `<name>.site.link`, and paste or screenshot the DNS records it shows.
 5. **`connect_name`** with every record exactly as Sites showed it: type, host or name, and value. Don't rewrite, shorten or "fix" them; the tool understands both `_verify.mycafe` and `_verify.mycafe.site.link`.
@@ -57,7 +57,7 @@ Don't loop on `get_status`. Check, report, and offer to check again later.
 | Code                 | What to do                                                                                                                           |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `name_taken`         | Offer the `suggestions`                                                                                                              |
-| `name_reserved`      | Offer the `suggestions`. Reserved names (brands, `www`, `api` and similar) can't be claimed                                          |
+| `name_reserved`      | Reserved names (brands, `www`, `api` and similar) can't be claimed. Help the user pick a name that isn't someone else's brand       |
 | `invalid_name`       | Explain the rule in the message and suggest a valid form                                                                             |
 | `limit_reached`      | The account already holds `current_name`. Offer to move it to this Site, or release it first if the user really wants a new name     |
 | `not_your_name`      | Call `get_status` to find the account's name                                                                                         |
