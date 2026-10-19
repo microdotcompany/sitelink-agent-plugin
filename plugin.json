@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "sitelink",
+  "version": "0.1.0",
+  "description": "Give your ChatGPT Site a free name.site.link address, without buying a domain or touching DNS.",
+  "author": {
+    "name": "site.link",
+    "email": "support@site.link",
+    "url": "https://site.link"
+  },
+  "homepage": "https://site.link",
+  "repository": "https://github.com/microdotcompany/sitelink-agent-plugin",
+  "license": "MIT",
+  "keywords": ["sitelink", "chatgpt-sites", "subdomain", "custom-domain", "website", "dns"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "site.link",
+        "shortDescription": "Free name.site.link addresses for your ChatGPT Sites",
+        "longDescription": "Give the website you built with ChatGPT Sites a clean address like mycafe.site.link instead of the default chatgpt.site URL. Pick a name, and site.link reserves it and sets up the DNS records the Site needs, so you don't buy a domain or touch DNS settings. Each account gets one free name.",
+        "developerName": "site.link",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://site.link",
+        "privacyPolicyURL": "https://site.link/privacy",
+        "termsOfServiceURL": "https://site.link/terms",
+        "defaultPrompt": [
+          "Give this Site a site.link address",
+          "Is mycafe.site.link available?",
+          "Is my site.link address working yet?",
+          "Move my site.link address to this Site"
+        ],
+        "brandColor": "#2350F5",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

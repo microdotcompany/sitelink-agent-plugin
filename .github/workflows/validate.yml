@@ -1,0 +1,25 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JSON parses
+        run: jq empty plugin.json mcp.json
+      - name: Versions match
+        run: |
+          portable=$(jq -r .version plugin.json)
+          skill=$(sed -n 's/^  version: //p' skills/sitelink/SKILL.md)
+          echo "portable=$portable skill=$skill"
+          [ "$portable" = "$skill" ]
+      - name: Skill under 300 lines
+        run: '[ "$(wc -l < skills/sitelink/SKILL.md)" -le 300 ]'
+      - name: No forbidden files
+        run: |
+          ! find . -name .DS_Store -o -type l -not -path './.git/*' | grep .
+          [ ! -f .gitmodules ]
