@@ -1,6 +1,6 @@
 interface:
   display_name: "site.link"
-  short_description: "Free name.site.link addresses for your sites"
+  short_description: "Free name.site.link addresses"
   brand_color: "#2350F5"
   default_prompt: "Use $sitelink to put my site online at a free name.site.link address."
 dependencies:

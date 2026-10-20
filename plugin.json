@@ -16,7 +16,7 @@
     "com.openai": {
       "interface": {
         "displayName": "site.link",
-        "shortDescription": "Free name.site.link addresses for your sites",
+        "shortDescription": "Free name.site.link addresses",
         "longDescription": "Put the website you make with ChatGPT online at a clean address like mycafe.site.link. site.link can host the site for you, or point the name at a site you built with ChatGPT Sites by setting up the DNS records it needs. You never buy a domain or touch DNS settings. Each account gets one free name.",
         "developerName": "site.link",
         "category": "Productivity",
@@ -24,11 +24,11 @@
         "websiteURL": "https://site.link",
         "privacyPolicyURL": "https://site.link/privacy",
         "termsOfServiceURL": "https://site.link/terms",
+        "supportURL": "https://site.link",
         "defaultPrompt": [
           "Publish this page at a site.link address",
           "Give this Site a site.link address",
-          "Is mycafe.site.link available?",
-          "Is my site.link address working yet?"
+          "Is mycafe.site.link available?"
         ],
         "brandColor": "#2350F5",
         "composerIcon": "./assets/icon.png",
