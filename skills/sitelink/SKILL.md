@@ -2,7 +2,7 @@
 name: sitelink
 description: When the user wants their website online at a free, clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a site.link name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
 metadata:
-  version: 0.2.0
+  version: 0.2.1
 ---
 
 # site.link

@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sitelink",
-  "version": "0.2.0",
-  "description": "Give your site a free name.site.link address: site.link hosts the site, or points the name at your ChatGPT Site. No domain to buy, no DNS to touch.",
+  "version": "0.2.1",
+  "description": "Put your site online at a name.site.link address: site.link hosts the site, or points the name at your ChatGPT Site. No domain to buy, no DNS to touch.",
   "author": {
     "name": "site.link",
     "email": "care@site.link",
@@ -11,16 +11,28 @@
   "homepage": "https://site.link",
   "repository": "https://github.com/microdotcompany/sitelink-agent-plugin",
   "license": "MIT",
-  "keywords": ["sitelink", "chatgpt-sites", "website", "hosting", "publish", "subdomain", "custom-domain", "dns"],
+  "keywords": [
+    "sitelink",
+    "chatgpt-sites",
+    "website",
+    "hosting",
+    "publish",
+    "subdomain",
+    "custom-domain",
+    "dns"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "site.link",
-        "shortDescription": "Free name.site.link addresses",
-        "longDescription": "Put the website you make with ChatGPT online at a clean address like mycafe.site.link. site.link can host the site for you, or point the name at a site you built with ChatGPT Sites by setting up the DNS records it needs. You never buy a domain or touch DNS settings. Each account gets one free name.",
+        "shortDescription": "Your site at name.site.link",
+        "longDescription": "site.link puts the website you make with ChatGPT online at a clean address like mycafe.site.link. It can host the site for you, or point the name at a site you built with ChatGPT Sites by setting up the DNS records Sites asks for. You never buy a domain or touch DNS settings. Each account holds one name.",
         "developerName": "site.link",
         "category": "Productivity",
-        "capabilities": ["Read", "Write"],
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
         "websiteURL": "https://site.link",
         "privacyPolicyURL": "https://site.link/privacy",
         "termsOfServiceURL": "https://site.link/terms",
