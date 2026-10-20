@@ -11,5 +11,13 @@
   "homepage": "https://site.link",
   "repository": "https://github.com/microdotcompany/sitelink-agent-plugin",
   "license": "MIT",
-  "keywords": ["sitelink", "website", "hosting", "publish", "subdomain", "custom-domain"]
+  "keywords": [
+    "sitelink",
+    "website",
+    "hosting",
+    "publish",
+    "subdomain",
+    "custom-domain"
+  ],
+  "privacyPolicyUrl": "https://site.link/privacy"
 }

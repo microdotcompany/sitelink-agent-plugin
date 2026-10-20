@@ -19,6 +19,6 @@ The site.link MCP connector (`https://mcp.site.link/mcp`) and a skill that walks
 
 ## Data
 
-The plugin sends the name you pick, your site's files, and for ChatGPT Sites the DNS records Sites shows, to site.link through mcp.site.link. Hosted sites are public at their address. See https://site.link/privacy.
+The plugin sends the name you pick, your site's files, and for ChatGPT Sites the DNS records Sites shows, to site.link through mcp.site.link. Hosted sites are public at their address. Privacy policy: https://site.link/privacy
 
 Support: care@site.link

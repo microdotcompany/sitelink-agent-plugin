@@ -12,7 +12,7 @@ This repo is the site.link plugin for ChatGPT, Codex and Claude: one skill plus 
 | `.mcp.json`                         | MCP server for Claude (`type: http`; Claude finds OAuth from the server itself)       |
 | `skills/sitelink/SKILL.md`          | The workflow: check, claim, then publish the site or connect a ChatGPT Site, verify   |
 | `skills/sitelink/agents/openai.yaml` | Skill interface and its MCP dependency                                               |
-| `assets/icon.png`                   | 512×512 listing and composer icon                                                     |
+| `assets/`                           | The 512×512 listing and composer icon (OpenAI manifest only)                          |
 
 ## Rules
 
