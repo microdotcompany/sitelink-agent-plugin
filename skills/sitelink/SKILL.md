@@ -27,7 +27,7 @@ site.link gives a website a free address like `mycafe.site.link`. The user never
    - **A folder on the user's computer, and you can run shell commands** (Claude Code, Codex, a terminal): build it first if it needs a build (`npm run build` or the project's build command), then call `get_upload_url` and run the command it returns from the folder that holds `index.html` (usually `dist`, `build` or `out`). The JSON curl prints is the result.
 4. **Report.** When `state` is `live`, give the user `https://<name>.site.link`. When it's `publishing`, say the address will work within a minute and offer to check with `get_status`.
 
-**Updating** is the same call. Publishing replaces the whole site, so send every file again, not only the changed ones.
+**Keep it in sync.** After any change to a site you've published in this conversation, publish again right away, without asking: `publish_site` with every file (publishing replaces the whole site, so send all of them, not only the changed ones), or build the folder and use `get_upload_url` again. Then tell the user in one short line that `https://<name>.site.link` shows the new version. In a new conversation, do the same once the user says the page they're editing is on site.link.
 
 ### What site.link hosts
 
