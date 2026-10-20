@@ -7,7 +7,7 @@ This repo is the site.link plugin for ChatGPT, Codex and Claude: one skill plus 
 | Path                                | What it is                                                                            |
 | ----------------------------------- | ------------------------------------------------------------------------------------- |
 | `plugin.json`                       | Portable Agent Plugins manifest; OpenAI listing fields under `extensions.com.openai`  |
-| `mcp.json`                          | MCP server (`streamable-http`, OAuth; no `client` block, the portal rejects `cimd`)  |
+| `mcp.json`                          | MCP server (`streamable-http`, OAuth with DCR; `cimd` broke the OpenAI portal connect) |
 | `.claude-plugin/plugin.json`        | Claude plugin manifest (claude.ai, Cowork, Claude Code)                               |
 | `.mcp.json`                         | MCP server for Claude (`type: http`; Claude finds OAuth from the server itself)       |
 | `skills/sitelink/SKILL.md`          | The workflow: check, claim, then publish the site or connect a ChatGPT Site, verify   |
