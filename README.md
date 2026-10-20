@@ -14,4 +14,4 @@ Each account gets one free name. Sign in with email or Google the first time Cha
 
 A ChatGPT plugin: the site.link MCP connector (`https://mcp.site.link/mcp`) and a skill that walks the assistant through check, claim, connect and verify. The server code is in [`sitelink-mcp`](https://github.com/microdotcompany/sitelink-mcp).
 
-Support: support@site.link
+Support: care@site.link
