@@ -19,5 +19,8 @@
     "subdomain",
     "custom-domain"
   ],
-  "privacyPolicyUrl": "https://site.link/privacy"
+  "privacyPolicyUrl": "https://site.link/privacy",
+  "documentationUrl": "https://site.link/claude",
+  "supportUrl": "https://site.link",
+  "termsOfServiceUrl": "https://site.link/terms"
 }
