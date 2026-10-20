@@ -1,0 +1,15 @@
+{
+  "name": "sitelink",
+  "displayName": "site.link",
+  "version": "0.2.0",
+  "description": "Put the site you make with Claude online at a free address like mycafe.site.link. site.link hosts it, so there's no domain to buy and no DNS to set up.",
+  "author": {
+    "name": "site.link",
+    "email": "care@site.link",
+    "url": "https://site.link"
+  },
+  "homepage": "https://site.link",
+  "repository": "https://github.com/microdotcompany/sitelink-agent-plugin",
+  "license": "MIT",
+  "keywords": ["sitelink", "website", "hosting", "publish", "subdomain", "custom-domain"]
+}

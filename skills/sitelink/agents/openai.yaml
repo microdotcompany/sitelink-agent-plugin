@@ -1,8 +1,8 @@
 interface:
   display_name: "site.link"
-  short_description: "Free name.site.link addresses for your ChatGPT Sites"
+  short_description: "Free name.site.link addresses for your sites"
   brand_color: "#2350F5"
-  default_prompt: "Use $sitelink to give my ChatGPT Site a free name.site.link address."
+  default_prompt: "Use $sitelink to put my site online at a free name.site.link address."
 dependencies:
   tools:
     - type: "mcp"
