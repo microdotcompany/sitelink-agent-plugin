@@ -2,7 +2,7 @@
 name: sitelink
 description: When the user wants their website online at a clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a site.link name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
 metadata:
-  version: 0.3.2
+  version: 0.3.6
 ---
 
 # site.link
@@ -24,10 +24,10 @@ site.link gives a website an address like `mycafe.site.link`. The user never buy
 2. **`check_name`**, then **`claim_name`**. If the name is taken, offer the `suggestions` and let the user choose. Don't claim a name the user didn't agree to.
 3. **Send the files.**
    - **Made in this conversation** (an HTML page, an artifact, a few files): call `publish_site` with every file. The home page is `index.html`. A one-page site can be a single `index.html` with its CSS and JS inline. Send text files as they are; send images and fonts as base64 with `encoding: "base64"`, or link to images by URL.
-   - **A folder on the user's computer, and you can run shell commands** (Claude Code, Codex, a terminal): build it first if it needs a build (`npm run build` or the project's build command), then call `get_upload_url` and run the command it returns from the folder that holds `index.html` (usually `dist`, `build` or `out`). The JSON curl prints is the result.
+   - **A folder on the user's computer, and you can run shell commands** (Claude Code, Codex, a terminal): build it first if it needs a build (`npm run build` or the project's build command). Call `get_upload_url`, then zip the folder that holds `index.html` (usually `dist`, `build` or `out`) and upload the zip to its `upload_url`: `zip -qr ../site.zip . && curl -sS -T ../site.zip "<upload_url>"`. curl prints JSON that says whether the site is live.
 4. **Report.** When `state` is `live`, give the user `https://<name>.site.link`. When it's `publishing`, say the address will work within a minute and offer to check with `get_status`.
 
-**Keep it in sync.** After any change to a site you've published in this conversation, publish again right away, without asking: `publish_site` with every file (publishing replaces the whole site, so send all of them, not only the changed ones), or build the folder and use `get_upload_url` again. Then tell the user in one short line that `https://<name>.site.link` shows the new version. In a new conversation, do the same once the user says the page they're editing is on site.link.
+**Keep it in sync.** When the user asks you to change a site you've published in this conversation, publishing the new version is part of that change: `publish_site` with every file (publishing replaces the whole site, so send all of them, not only the changed ones), or build the folder and upload it again. Then tell the user in one short line that `https://<name>.site.link` shows the new version. In a new conversation, do the same once the user says the page they're editing is on site.link.
 
 ### What site.link hosts
 
@@ -36,12 +36,6 @@ site.link gives a website an address like `mycafe.site.link`. The user never buy
 - Static files only: no server code, databases or environment variables. Forms need an outside service (a form backend, a mailto link, a booking or payment page the user already has).
 - **No password or card fields.** site.link refuses pages that ask for passwords or card details, because those are what phishing pages look like. Link to the payment or sign-in page of a service the user already uses instead.
 - Sites whose name isn't paid for show a small "Made with site.link" badge in the corner.
-
-## What a name costs
-
-Every name is free for 30 days from the day it's claimed. Keeping it after that takes a yearly plan, which the user sets up on the site.link website, never in the chat. Results from `check_name`, `claim_name`, `get_status` and `get_account` carry a `plan` with a `summary`. `publish_site` and `connect_name` include one only when the free days are nearly over, have ended, a payment failed, or the name is paused.
-
-Pass the `summary` on to the user in your own words when you claim a name, and whenever a publish or connect result includes one. Say it once; don't repeat it on every step. Don't add prices or payment links that the summary doesn't contain.
 
 ## Connect a ChatGPT Site
 
