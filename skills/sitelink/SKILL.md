@@ -1,13 +1,13 @@
 ---
 name: sitelink
-description: When the user wants their website online at a free, clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a site.link name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
+description: When the user wants their website online at a clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a site.link name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
 metadata:
-  version: 0.2.1
+  version: 0.3.0
 ---
 
 # site.link
 
-site.link gives a website a free address like `mycafe.site.link`. The user never buys a domain or touches DNS. Each account holds one name, and the name shows one of two things:
+site.link gives a website an address like `mycafe.site.link`. The user never buys a domain or touches DNS. An account can hold several names, and each name shows one of two things:
 
 - **A site that site.link hosts.** You send the site's files with `publish_site` (or upload a zip with `get_upload_url`) and it's live in seconds. Use this for anything made in the conversation or sitting in a folder.
 - **A ChatGPT Site.** ChatGPT Sites keeps hosting it; site.link only creates the DNS records the Site asks for. Use this only when the user built the site with ChatGPT Sites.
@@ -15,7 +15,7 @@ site.link gives a website a free address like `mycafe.site.link`. The user never
 ## Before you start
 
 - **No site.link tools?** The connector isn't connected or signed in. Ask the user to connect site.link in their app's connector settings and sign in with email or Google.
-- **One name per account.** `get_status` with no name shows the name this account already holds. If it has one, use it for this site instead of claiming another, unless the user wants to release it first.
+- **Same site, same name.** `get_status` with no name lists the account's names. When the user is updating a site they already put on site.link, use its name. Claim a new name only for a different site.
 - **Which way?** If the user is working on a ChatGPT Site and the ChatGPT Sites tools are in this conversation, follow "Connect a ChatGPT Site". In every other case, publish.
 
 ## Publish a site
@@ -35,7 +35,13 @@ site.link gives a website a free address like `mycafe.site.link`. The user never
 - Paths like `index.html`, `about/index.html` or `images/logo.png`. `/about` serves `about.html` or `about/index.html`. Unknown page paths serve `404.html` if the site has one, otherwise `index.html`, so single-page apps work.
 - Static files only: no server code, databases or environment variables. Forms need an outside service (a form backend, a mailto link, a booking or payment page the user already has).
 - **No password or card fields.** site.link refuses pages that ask for passwords or card details, because those are what phishing pages look like. Link to the payment or sign-in page of a service the user already uses instead.
-- Free sites show a small "Made with site.link" badge in the corner.
+- Sites whose name isn't paid for show a small "Made with site.link" badge in the corner.
+
+## What a name costs
+
+Every name is free for 30 days from the day it's claimed. Keeping it after that takes a yearly plan, which the user sets up on the site.link website, never in the chat. Results from `check_name`, `claim_name`, `get_status` and `get_account` carry a `plan` with a `summary`. `publish_site` and `connect_name` include one only when the free days are nearly over, have ended, a payment failed, or the name is paused.
+
+Pass the `summary` on to the user in your own words when you claim a name, and whenever a publish or connect result includes one. Say it once; don't repeat it on every step. Don't add prices or payment links that the summary doesn't contain.
 
 ## Connect a ChatGPT Site
 
@@ -87,8 +93,7 @@ Don't loop on `get_status`. Check, report, and offer to check again later.
 | `name_taken`         | Offer the `suggestions`                                                                                                            |
 | `name_reserved`      | Reserved names (brands, sign-in or payment words like login or verify, `www`, `api`) can't be claimed. Help pick a plain name      |
 | `invalid_name`       | Explain the rule in the message and suggest a valid form                                                                           |
-| `limit_reached`      | The account already holds `current_name`. Use it for this site, or release it first if the user really wants a new name           |
-| `not_your_name`      | Call `get_status` to find the account's name                                                                                       |
+| `not_your_name`      | Call `get_status` to list the account's names                                                                                      |
 | `invalid_files`      | Fix what the message names (a path, a file type, base64, a missing `index.html`) and publish again                                 |
 | `too_large`          | Over 100 files or 10 MB. Compress images, drop unused files, or link to large videos hosted elsewhere                              |
 | `content_refused`    | The page has a password or card field. Remove it (link to an outside sign-in or payment page instead) and publish again           |
@@ -99,6 +104,7 @@ Don't loop on `get_status`. Check, report, and offer to check again later.
 | `invalid_record`     | Re-read the records from Sites and pass them exactly as shown                                                                      |
 | `dns_conflict`       | Tell the user to contact care@site.link                                                                                            |
 | `dns_unavailable`    | Temporary. Try once more in a minute                                                                                               |
+| `billing_unavailable` | Releasing couldn't stop the name's yearly plan, so nothing was released. Try once more in a minute                                |
 | `rate_limited`       | Wait a minute before the next call                                                                                                 |
 | `account_disabled`   | Tell the user to contact care@site.link                                                                                            |
 | `name_disabled`      | The name was turned off for breaking the rules. Tell the user to contact care@site.link                                            |
