@@ -1,6 +1,6 @@
 # site.link for ChatGPT and Claude
 
-Put the website you make with ChatGPT or Claude online at a free address like `mycafe.site.link`, without buying a domain or touching DNS.
+Put the website you make with ChatGPT or Claude online at an address like `mycafe.site.link`, without buying a domain or touching DNS.
 
 Ask:
 
@@ -8,7 +8,7 @@ Ask:
 
 site.link reserves the name and hosts the site. It's live in seconds, and publishing again updates it. If you built the site with ChatGPT Sites, site.link can point the name at that Site instead: ChatGPT adds it as a custom domain and site.link creates the DNS records Sites asks for.
 
-Each account gets one free name. Sign in with email or Google the first time you're asked.
+Sign in with email or Google the first time you're asked. Pricing: https://site.link/pricing
 
 ## What's in here
 
