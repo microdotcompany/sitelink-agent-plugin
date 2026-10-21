@@ -24,6 +24,8 @@ This repo is the site.link plugin for ChatGPT, Codex and Claude: one skill plus 
 - The skill is shared by every app. Keep it app-neutral: it names the ChatGPT Sites tools only in the ChatGPT Sites flow.
 - Changing the manifest, skill or MCP config needs a new ZIP and another OpenAI review, and a new submission in Claude's developer portal (claude.ai/directory/manage). Tool changes on the server go live after OpenAI's automatic rescan.
 - Run `claude plugin validate .` before submitting to Claude.
+- OpenAI's skill scan ("could create a security risk") gives different answers for the same text, so keep the skill well clear of what it flags: running commands taken from tool output, acting "without asking", relaying plans or prices, and searching other apps' data. It flagged 0.3.0 (plan relay) and 0.3.3, and passed 0.3.5.
+- OpenAI is reviewing 0.3.5, which is this skill without the two `@site.link` new-chat lines (in "Before you start" and step 1 of "Connect a ChatGPT Site"). Leave them out of OpenAI ZIPs until a ZIP that adds only them passes the scan.
 
 ## Package for submission
 
