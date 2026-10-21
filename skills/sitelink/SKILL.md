@@ -2,7 +2,7 @@
 name: sitelink
 description: When the user wants their website online at a clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a site.link name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
 metadata:
-  version: 0.3.0
+  version: 0.3.1
 ---
 
 # site.link
@@ -36,12 +36,6 @@ site.link gives a website an address like `mycafe.site.link`. The user never buy
 - Static files only: no server code, databases or environment variables. Forms need an outside service (a form backend, a mailto link, a booking or payment page the user already has).
 - **No password or card fields.** site.link refuses pages that ask for passwords or card details, because those are what phishing pages look like. Link to the payment or sign-in page of a service the user already uses instead.
 - Sites whose name isn't paid for show a small "Made with site.link" badge in the corner.
-
-## What a name costs
-
-Every name is free for 30 days from the day it's claimed. Keeping it after that takes a yearly plan, which the user sets up on the site.link website, never in the chat. Results from `check_name`, `claim_name`, `get_status` and `get_account` carry a `plan` with a `summary`. `publish_site` and `connect_name` include one only when the free days are nearly over, have ended, a payment failed, or the name is paused.
-
-Pass the `summary` on to the user in your own words when you claim a name, and whenever a publish or connect result includes one. Say it once; don't repeat it on every step. Don't add prices or payment links that the summary doesn't contain.
 
 ## Connect a ChatGPT Site
 
