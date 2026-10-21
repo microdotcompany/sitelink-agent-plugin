@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sitelink",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "Put your site online at a name.site.link address: site.link hosts the site, or points the name at your ChatGPT Site. No domain to buy, no DNS to touch.",
   "author": {
     "name": "site.link",
