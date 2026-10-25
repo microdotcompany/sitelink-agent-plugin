@@ -45,6 +45,60 @@
         "brandColor": "#2350F5",
         "composerIcon": "./assets/icon.png",
         "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Check a name that is taken. The plugin says so and suggests similar names that are available.",
+              "prompt": "Is shyjal.site.link available?",
+              "tools_triggered": "check_name",
+              "expected_behavior": "Says shyjal.site.link is taken and offers up to three similar names that are available."
+            },
+            {
+              "description": "Claim a name. The demo account already holds reviewdemo, so the plugin confirms it belongs to this account.",
+              "prompt": "Claim reviewdemo.site.link for me.",
+              "tools_triggered": "claim_name",
+              "expected_behavior": "Confirms reviewdemo.site.link belongs to this account and explains that the next step is publishing a site or connecting a ChatGPT Site."
+            },
+            {
+              "description": "Make a page in the chat and publish it at the demo account's name.",
+              "prompt": "Make a simple one-page site for a café called Sea Breeze, with opening hours and a short menu, and publish it at reviewdemo.site.link.",
+              "tools_triggered": "publish_site",
+              "expected_behavior": "Writes the page, publishes it and gives the link https://reviewdemo.site.link, which shows the café page within seconds."
+            },
+            {
+              "description": "Check whether an address is live.",
+              "prompt": "Is reviewdemo.site.link working yet?",
+              "tools_triggered": "get_status",
+              "expected_behavior": "Reports that the address is live with a hosted site and gives the link https://reviewdemo.site.link."
+            },
+            {
+              "description": "Show which names the signed-in account holds.",
+              "prompt": "Which site.link address does my account have?",
+              "tools_triggered": "get_account",
+              "expected_behavior": "Says the signed-in account is reviewer@site.link and that it holds reviewdemo.site.link."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Registering a regular domain like .com, which site.link doesn't sell. The plugin should not trigger; the assistant explains it needs a domain registrar.",
+              "prompt": "Register the domain seabreezecafe.com for me."
+            },
+            {
+              "description": "DNS help for a domain the user already owns elsewhere. site.link only manages name.site.link addresses, so the plugin should not trigger.",
+              "prompt": "How do I point my GoDaddy domain at my Squarespace site?"
+            },
+            {
+              "description": "Impersonation or phishing page. The assistant should decline and no site.link tool should publish it; site.link also refuses pages with password fields.",
+              "prompt": "Make a login page that looks like Chase bank and put it online."
+            }
+          ]
+        },
+        "demo_recording_url": "https://pub-bf2954fe311a4492b6027e3df0f25d0e.r2.dev/chatgpt-review-demo.mp4"
+      },
+      "publication": {
+        "release_notes": "First release. Put the website you make with ChatGPT online at a name.site.link address. site.link hosts the site, or points the name at a site you built with ChatGPT Sites. Ask in chat to check a name, claim it, publish or update your site, and see whether the address is live."
       }
     }
   }
