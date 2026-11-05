@@ -1,7 +1,7 @@
 interface:
   display_name: "site.link"
-  short_description: "Your site at name.site.link"
-  brand_color: "#2350F5"
+  short_description: "Publish and host your website"
+  brand_color: "#E43321"
   default_prompt: "Use $sitelink to put my site online at a name.site.link address."
 dependencies:
   tools:

@@ -2,7 +2,7 @@
 name: sitelink
 description: When the user wants their website online at a clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a site.link name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
 metadata:
-  version: 0.3.6
+  version: 0.3.7
 ---
 
 # site.link
@@ -32,7 +32,7 @@ site.link gives a website an address like `mycafe.site.link`. The user never buy
 ### What site.link hosts
 
 - Up to 100 files and 10 MB. Pages, styles, scripts, images, fonts, audio, video and PDFs.
-- Paths like `index.html`, `about/index.html` or `images/logo.png`. `/about` serves `about.html` or `about/index.html`. Unknown page paths serve `404.html` if the site has one, otherwise `index.html`, so single-page apps work.
+- Paths like `index.html`, `about/index.html` or `images/logo.png`. `/about` serves `about.html` or `about/index.html`. Unknown page paths serve `404.html` if the site has one. Without one, a site with a single page serves `index.html`, so single-page apps work, and a site with several pages shows a not-found page.
 - Static files only: no server code, databases or environment variables. Forms need an outside service (a form backend, a mailto link, a booking or payment page the user already has).
 - **No password or card fields.** site.link refuses pages that ask for passwords or card details, because those are what phishing pages look like. Link to the payment or sign-in page of a service the user already uses instead.
 - Sites whose name isn't paid for show a small "Made with site.link" badge in the corner.
