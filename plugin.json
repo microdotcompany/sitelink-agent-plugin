@@ -103,7 +103,7 @@
         "demo_recording_url": "https://pub-bf2954fe311a4492b6027e3df0f25d0e.r2.dev/chatgpt-review-demo.mp4"
       },
       "publication": {
-        "release_notes": "site.link is now called Sitelink. The listing name, developer name, descriptions and skill use the new name, and the skill now says to type @Sitelink to use it in a chat that's already open. The addresses stay the same (name.site.link)."
+        "release_notes": "site.link is now called Sitelink. The listing name, developer name, descriptions and skill use the new name, and the skill now says to type @sitelink to use it in a chat that's already open. The addresses stay the same (name.site.link)."
       }
     }
   }

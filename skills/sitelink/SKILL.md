@@ -14,7 +14,7 @@ Sitelink gives a website an address like `mycafe.site.link`. The user never buys
 
 ## Before you start
 
-- **No Sitelink tools?** The connector isn't connected or signed in. Ask the user to connect Sitelink in their app's connector settings and sign in with email or Google. In ChatGPT, the user can also type `@Sitelink` and pick it from the list to use Sitelink in the current chat.
+- **No Sitelink tools?** The connector isn't connected or signed in. Ask the user to connect Sitelink in their app's connector settings and sign in with email or Google. In ChatGPT, the user can also type `@sitelink` and pick it from the list to use Sitelink in the current chat.
 - **Same site, same name.** `get_status` with no name lists the account's names. When the user is updating a site they already put on Sitelink, use its name. Claim a new name only for a different site.
 - **Which way?** If the user is working on a ChatGPT Site and the ChatGPT Sites tools are in this conversation, follow "Connect a ChatGPT Site". In every other case, publish.
 
@@ -39,7 +39,7 @@ Sitelink gives a website an address like `mycafe.site.link`. The user never buys
 
 ## Connect a ChatGPT Site
 
-1. Pick, check and claim the name as above. Pass the Site's URL to `claim_name` as `site_url` when you know it. If the Site wasn't built in this conversation, find it with the Sites tools by the name the user gives, or ask for its address (`name.word123.chatgpt.site`). If you still can't find it, the user can type `@Sitelink` in the chat where they built it and ask there.
+1. Pick, check and claim the name as above. Pass the Site's URL to `claim_name` as `site_url` when you know it. If the Site wasn't built in this conversation, find it with the Sites tools by the name the user gives, or ask for its address (`name.word123.chatgpt.site`). If you still can't find it, the user can type `@sitelink` in the chat where they built it and ask there.
 2. **Add the hostname to the Site.** With the Sites tools, add `<name>.site.link` as a custom domain on the Site and read the DNS records Sites returns. If there are no Sites tools here, ask the user to open the Site's settings, choose **Add domain**, enter `<name>.site.link`, and paste or screenshot the DNS records it shows.
 3. **`connect_name`** with every record exactly as Sites showed it: type, host or name, and value. Don't rewrite, shorten or "fix" them; the tool understands both `_verify.mycafe` and `_verify.mycafe.site.link`.
 4. **Verify.** Refresh the domain status with the Sites tools (or ask the user to click refresh in the Site's domain settings). Then `get_status` for the name.
