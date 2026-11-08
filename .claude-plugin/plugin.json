@@ -1,10 +1,10 @@
 {
   "name": "sitelink",
-  "displayName": "site.link",
-  "version": "0.3.7",
-  "description": "Put the site you make with Claude online at an address like mycafe.site.link. site.link hosts it, so there's no domain to buy and no DNS to set up.",
+  "displayName": "Sitelink",
+  "version": "0.3.8",
+  "description": "Put the site you make with Claude online at an address like mycafe.site.link. Sitelink hosts it, so there's no domain to buy and no DNS to set up.",
   "author": {
-    "name": "site.link",
+    "name": "Sitelink",
     "email": "care@site.link",
     "url": "https://site.link"
   },

@@ -1,5 +1,5 @@
 interface:
-  display_name: "site.link"
+  display_name: "Sitelink"
   short_description: "Publish and host your website"
   brand_color: "#E43321"
   default_prompt: "Use $sitelink to put my site online at a name.site.link address."
@@ -7,6 +7,6 @@ dependencies:
   tools:
     - type: "mcp"
       value: "sitelink"
-      description: "site.link connector"
+      description: "Sitelink connector"
       transport: "streamable_http"
       url: "https://mcp.site.link/mcp"

@@ -1,21 +1,21 @@
 ---
 name: sitelink
-description: When the user wants their website online at a clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a site.link name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
+description: When the user wants their website online at a clean address (a name.site.link subdomain) without buying a domain, whether it's a page or site made in this conversation, a built site folder on their computer, or a ChatGPT Site. Also when they ask to check or claim a Sitelink name, publish or update their site, connect a ChatGPT Site, see whether the address works yet, take the site down, or give the name up.
 metadata:
-  version: 0.3.7
+  version: 0.3.8
 ---
 
-# site.link
+# Sitelink
 
-site.link gives a website an address like `mycafe.site.link`. The user never buys a domain or touches DNS. An account can hold several names, and each name shows one of two things:
+Sitelink gives a website an address like `mycafe.site.link`. The user never buys a domain or touches DNS. An account can hold several names, and each name shows one of two things:
 
-- **A site that site.link hosts.** You send the site's files with `publish_site` (or upload a zip with `get_upload_url`) and it's live in seconds. Use this for anything made in the conversation or sitting in a folder.
-- **A ChatGPT Site.** ChatGPT Sites keeps hosting it; site.link only creates the DNS records the Site asks for. Use this only when the user built the site with ChatGPT Sites.
+- **A site that Sitelink hosts.** You send the site's files with `publish_site` (or upload a zip with `get_upload_url`) and it's live in seconds. Use this for anything made in the conversation or sitting in a folder.
+- **A ChatGPT Site.** ChatGPT Sites keeps hosting it; Sitelink only creates the DNS records the Site asks for. Use this only when the user built the site with ChatGPT Sites.
 
 ## Before you start
 
-- **No site.link tools?** The connector isn't connected or signed in. Ask the user to connect site.link in their app's connector settings and sign in with email or Google. In ChatGPT, the user can also type `@site.link` and pick it from the list to use site.link in the current chat.
-- **Same site, same name.** `get_status` with no name lists the account's names. When the user is updating a site they already put on site.link, use its name. Claim a new name only for a different site.
+- **No Sitelink tools?** The connector isn't connected or signed in. Ask the user to connect Sitelink in their app's connector settings and sign in with email or Google. In ChatGPT, the user can also type `@Sitelink` and pick it from the list to use Sitelink in the current chat.
+- **Same site, same name.** `get_status` with no name lists the account's names. When the user is updating a site they already put on Sitelink, use its name. Claim a new name only for a different site.
 - **Which way?** If the user is working on a ChatGPT Site and the ChatGPT Sites tools are in this conversation, follow "Connect a ChatGPT Site". In every other case, publish.
 
 ## Publish a site
@@ -27,19 +27,19 @@ site.link gives a website an address like `mycafe.site.link`. The user never buy
    - **A folder on the user's computer, and you can run shell commands** (Claude Code, Codex, a terminal): build it first if it needs a build (`npm run build` or the project's build command). Call `get_upload_url`, then zip the folder that holds `index.html` (usually `dist`, `build` or `out`) and upload the zip to its `upload_url`: `zip -qr ../site.zip . && curl -sS -T ../site.zip "<upload_url>"`. curl prints JSON that says whether the site is live.
 4. **Report.** When `state` is `live`, give the user `https://<name>.site.link`. When it's `publishing`, say the address will work within a minute and offer to check with `get_status`.
 
-**Keep it in sync.** When the user asks you to change a site you've published in this conversation, publishing the new version is part of that change: `publish_site` with every file (publishing replaces the whole site, so send all of them, not only the changed ones), or build the folder and upload it again. Then tell the user in one short line that `https://<name>.site.link` shows the new version. In a new conversation, do the same once the user says the page they're editing is on site.link.
+**Keep it in sync.** When the user asks you to change a site you've published in this conversation, publishing the new version is part of that change: `publish_site` with every file (publishing replaces the whole site, so send all of them, not only the changed ones), or build the folder and upload it again. Then tell the user in one short line that `https://<name>.site.link` shows the new version. In a new conversation, do the same once the user says the page they're editing is on Sitelink.
 
-### What site.link hosts
+### What Sitelink hosts
 
 - Up to 100 files and 10 MB. Pages, styles, scripts, images, fonts, audio, video and PDFs.
 - Paths like `index.html`, `about/index.html` or `images/logo.png`. `/about` serves `about.html` or `about/index.html`. Unknown page paths serve `404.html` if the site has one. Without one, a site with a single page serves `index.html`, so single-page apps work, and a site with several pages shows a not-found page.
 - Static files only: no server code, databases or environment variables. Forms need an outside service (a form backend, a mailto link, a booking or payment page the user already has).
-- **No password or card fields.** site.link refuses pages that ask for passwords or card details, because those are what phishing pages look like. Link to the payment or sign-in page of a service the user already uses instead.
-- Sites whose name isn't paid for show a small "Made with site.link" badge in the corner.
+- **No password or card fields.** Sitelink refuses pages that ask for passwords or card details, because those are what phishing pages look like. Link to the payment or sign-in page of a service the user already uses instead.
+- Sites whose name isn't paid for show a small "Made with Sitelink" badge in the corner.
 
 ## Connect a ChatGPT Site
 
-1. Pick, check and claim the name as above. Pass the Site's URL to `claim_name` as `site_url` when you know it. If the Site wasn't built in this conversation, find it with the Sites tools by the name the user gives, or ask for its address (`name.word123.chatgpt.site`). If you still can't find it, the user can type `@site.link` in the chat where they built it and ask there.
+1. Pick, check and claim the name as above. Pass the Site's URL to `claim_name` as `site_url` when you know it. If the Site wasn't built in this conversation, find it with the Sites tools by the name the user gives, or ask for its address (`name.word123.chatgpt.site`). If you still can't find it, the user can type `@Sitelink` in the chat where they built it and ask there.
 2. **Add the hostname to the Site.** With the Sites tools, add `<name>.site.link` as a custom domain on the Site and read the DNS records Sites returns. If there are no Sites tools here, ask the user to open the Site's settings, choose **Add domain**, enter `<name>.site.link`, and paste or screenshot the DNS records it shows.
 3. **`connect_name`** with every record exactly as Sites showed it: type, host or name, and value. Don't rewrite, shorten or "fix" them; the tool understands both `_verify.mycafe` and `_verify.mycafe.site.link`.
 4. **Verify.** Refresh the domain status with the Sites tools (or ask the user to click refresh in the Site's domain settings). Then `get_status` for the name.
@@ -63,7 +63,7 @@ A name shows one thing at a time.
 | `dns_pending`   | ChatGPT Site records saved, not visible in DNS yet                       | Usually a minute or two. Check again shortly                                                     |
 | `https_pending` | DNS works; the Site hasn't finished verifying the domain or issuing HTTPS | Refresh the domain status on the Site. Certificates can take a few minutes after the domain verifies |
 | `live`          | The address loads over HTTPS                                             | Share the URL                                                                                    |
-| `disabled`      | site.link turned the name off for breaking its rules                     | Tell the user to contact care@site.link. Don't try to publish, connect or release it            |
+| `disabled`      | Sitelink turned the name off for breaking its rules                     | Tell the user to contact care@site.link. Don't try to publish, connect or release it            |
 
 Don't loop on `get_status`. Check, report, and offer to check again later.
 
