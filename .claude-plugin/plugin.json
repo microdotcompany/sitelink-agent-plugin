@@ -1,7 +1,7 @@
 {
   "name": "sitelink",
   "displayName": "Sitelink",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Put the site you make with Claude online at an address like mycafe.site.link. Sitelink hosts it, so there's no domain to buy and no DNS to set up.",
   "author": {
     "name": "Sitelink",
